@@ -1,0 +1,55 @@
+{
+ "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "projects": "Projects",
+    "vision": "Vision",
+    "statistics": "Statistics",
+    "contact": "Contact Us",
+    "support": "Support Now"
+  },
+  "hero": {
+    "title": "Sweida Sustainable Development Fund",
+    "subtitle": "A vision driven by daily needs, providing sustainable solutions in water, energy, and services."
+  },
+  "content": {
+    "location_title": "Strategic Location",
+    "location_text": "Sweida enjoys a strategic location on a volcanic plateau known as 'Jabal al-Arab', providing geographical importance for trade and fertile lands.",
+    "vision_title": "Our Developmental Vision",
+    "vision_text1": "We aim to improve water, electricity, health, and education through a non-profit fund.",
+    "vision_text2": "Our goal is an integrated model that restores economic balance and enhances quality of life.",
+    "water_energy_title": "Starting Point: Water & Energy",
+    "water_energy_text": "Real development starts with stable water and reliable energy. We focus on solar power for wells and clean electricity for hospitals.",
+    "sustainability_title": "Sustainability Dimensions",
+    "sustainability_list": [
+      "Better water and electricity management.",
+      "Reliance on renewable energy (Solar & Wind).",
+      "Improving health and educational services.",
+      "Supporting livestock and agricultural equipment."
+    ]
+  },
+ "project_name": "Sweida Sustainable Development Fund",
+  "header_title": "Modern Electricity, The Secret of Connections",
+  "header_subtitle": "Towards a Sustainable Future for Sweida Governorate",
+  "footer_msg": "We are committed to transparency and periodic reporting to build a more stable and prosperous future for Sweida.",
+  "footer": {
+    "about": "About Us & Projects",
+    "contact": "Contact Us",
+    "news": "News Center",
+    "privacy": "Privacy Policy"
+  },
+  
+  "impact_title": "Impact Counter",
+  "stats": {
+    "projects": "Projects",
+    "energy": "Renewable Energy",
+    "beneficiaries": "Beneficiaries"
+  },
+  "projects": {
+    "water": { "title": "WATER", "desc": "Providing sustainable water resources to ensure a better life for Sweida." },
+    "nature": { "title": "NATURE", "desc": "Protecting nature and increasing green spaces for a sustainable ecological balance." },
+    "creation": { "title": "CREATION", "desc": "Supporting innovation and small projects to boost the local economy." },
+    "read_more": "Read More"
+  }
+
+}

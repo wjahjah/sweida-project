@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* هذا السطر يربط ملف الإعدادات الخاص بك بالنسخة الجديدة */
+@config "../tailwind.config.js";
+/* تعريف حركة الزوم الهادئ */
+@keyframes continuous-zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15); /* تتكبر بنسبة 15% */
+  }
+  100% {
+    transform: scale(1); /* تعود لوضعها الأصلي بسلاسة */
+  }
+}
+
+.animate-hero-zoom {
+  /* infinite تعني مستمرة للأبد | alternate تعني تذهب وتعود بسلاسة */
+  animation: continuous-zoom 30s ease-in-out infinite;
+  will-change: transform;
+}

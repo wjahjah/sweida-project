@@ -1,0 +1,14 @@
+# تجاهل مكتبات المجلدات الثلاثة
+backend/node_modules/
+frontend/node_modules/
+admin-frontend/node_modules/
+
+# تجاهل ملفات البيئة
+.env
+backend/.env
+
+# تجاهل ملفات البناء
+frontend/dist/
+frontend/build/
+admin-frontend/dist/
+admin-frontend/build/

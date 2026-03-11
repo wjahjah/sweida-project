@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* لربط ملف الإعدادات الخاص بك (tailwind.config.js) مع الإصدار الرابع */
+@config "../tailwind.config.js";
+
+/* الستايلات العامة الخاصة بنا */
+@layer base {
+  body {
+    @apply bg-[#f8fafc] text-slate-900 antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}

@@ -1,0 +1,53 @@
+{
+ "nav": {
+    "home": "Accueil",
+    "about": "About Us",
+    "projects": "Projets",
+    "vision": "Vision",
+    "statistics": "Statistiques",
+    "contact": "Contactez-nous",
+    "support": "Soutenez-nous"
+  },
+  "hero": {
+    "title": "Fonds de Sweida pour le Développement Durable",
+    "subtitle": "Une vision basée sur les besoins quotidiens des citoyens, offrant des solutions pratiques et durables dans les domaines de l'eau, de l'énergie et des services."
+  },
+  "content": {
+    "location_title": "Emplacement Stratégique et Importance",
+    "location_text": "Sweida bénéficie d'un emplacement stratégique unique sur un plateau volcanique connu sous le nom de 'Jabal al-Arab', ce qui lui confère une grande importance géographique en facilitant le commerce et le transport, tout en offrant un climat tempéré et des terres fertiles propices à l'agriculture.",
+    "vision_title": "Notre Vision de Développement",
+    "vision_text1": "Nous nous efforçons d'améliorer les ressources en eau, l'électricité et les projets de services de santé et d'éducation par le biais du fonds de développement durable à but non lucratif.",
+    "vision_text2": "Notre objectif est de construire un modèle de développement intégré qui rétablit l'équilibre de l'économie locale, améliore la qualité de vie et renforce la stabilité sociale.",
+    "water_energy_title": "Point de Départ : Eau et Énergie",
+    "water_energy_text": "Il n'y a pas de véritable développement sans une eau stable et une énergie fiable. Nous nous concentrons d'abord sur l'utilisation de l'énergie solaire pour faire fonctionner les puits et les pompes, et fournir de l'électricité propre aux hôpitaux, aux foyers et au secteur industriel.",
+    "sustainability_title": "Dimensions du Développement Durable à Sweida",
+    "sustainability_list": [
+      "Meilleure gestion des ressources en eau et en électricité.",
+      "Dépendance aux énergies renouvelables (solaire et éolienne).",
+      "Amélioration des services de santé et d'éducation.",
+      "Soutien et développement de l'élevage et du matériel agricole."
+    ]
+  },
+ "project_name": "Fonds de Développement Durable de Sweida",
+  "header_title": "L'Électricité Moderne, Le Secret des Liens",
+  "header_subtitle": "Vers un avenir durable pour le gouvernorat de Sweida",
+  "footer_msg": "Nous nous engageons à la transparence et aux rapports périodiques pour construire un avenir plus stable et prospère pour Sweida.",
+  "footer": {
+    "about": "À propos de nous et projets",
+    "contact": "Contactez-nous",
+    "news": "Centre d'actualités",
+    "privacy": "Confidentialité"
+  },
+  "impact_title": "Indicateur d'Impact",
+  "stats": {
+    "projects": "Projets",
+    "energy": "Énergie Renouvelable",
+    "beneficiaries": "Bénéficiaires"
+  },
+  "projects": {
+    "water": { "title": "EAU", "desc": "Fournir des ressources en eau durables pour assurer une vie meilleure à Sweida." },
+    "nature": { "title": "NATURE", "desc": "Protéger la nature et augmenter les espaces verts pour un équilibre écologique durable." },
+    "creation": { "title": "CRÉATION", "desc": "Soutenir l'innovation et les petits projets pour booster l'économie locale." },
+    "read_more": "En savoir plus"
+  }
+}

@@ -1,0 +1,53 @@
+{
+ "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "projects": "Projekte",
+    "vision": "Vision",
+    "statistics": "Statistiken",
+    "contact": "Kontakt",
+    "support": "Jetzt Unterstützen"
+  },
+  "hero": {
+    "title": "Sweida Fonds für nachhaltige Entwicklung",
+    "subtitle": "Eine Vision, die auf den täglichen Bedürfnissen der Menschen basiert und praktische, nachhaltige Lösungen bietet."
+  },
+  "content": {
+    "location_title": "Strategische Lage und Bedeutung",
+    "location_text": "Sweida genießt eine strategische Lage auf einem vulkanischen Plateau namens 'Jabal al-Arab', was ihr große geografische Bedeutung und fruchtbares Land verleiht.",
+    "vision_title": "Unsere Entwicklungsvision",
+    "vision_text1": "Wir streben danach, Wasserressourcen, Stromversorgung sowie Gesundheits- und Bildungsdienste durch einen gemeinnützigen Fonds zu verbessern.",
+    "vision_text2": "Unser Ziel ist es, ein integriertes Entwicklungsmodell aufzubauen, das die lokale Wirtschaft stärkt und die Lebensqualität verbessert.",
+    "water_energy_title": "Der Ausgangspunkt: Wasser und Energie",
+    "water_energy_text": "Ohne stabiles Wasser und zuverlässige Energie gibt es keine echte Entwicklung. Wir setzen auf Solarenergie für Brunnen und Pumpen.",
+    "sustainability_title": "Dimensionen der Nachhaltigkeit in Sweida",
+    "sustainability_list": [
+      "Besseres Management von Wasser- und Stromressourcen.",
+      "Abhängigkeit von erneuerbaren Energien (Sonne und Wind).",
+      "Verbesserung der Gesundheits- und Bildungsdienste.",
+      "Unterstützung der Viehzucht und landwirtschaftlicher Geräte."
+    ]
+  },
+ "project_name": "Nachhaltiger Entwicklungsfonds Sweida",
+  "header_title": "Moderne Elektrizität, Das Geheimnis der Verbindungen",
+  "header_subtitle": "Auf dem Weg zu einer nachhaltigen Zukunft für das Gouvernement Sweida",
+  "footer_msg": "Wir setzen uns für Transparenz und regelmäßige Berichterstattung ein, um eine stabilere und erfolgreichere Zukunft für Sweida aufzubauen.",
+  "footer": {
+    "about": "Über uns und Projekte",
+    "contact": "Kontaktieren Sie uns",
+    "news": "Nachrichtenzentrum",
+    "privacy": "Datenschutz"
+  },
+  "impact_title": "Wirkungsindikator",
+  "stats": {
+    "projects": "Projekte",
+    "energy": "Erneuerbare Energie",
+    "beneficiaries": "Begünstigte"
+  },
+  "projects": {
+    "water": { "title": "WASSER", "desc": "Nachhaltige Wasserressourcen bereitstellen, um ein besseres Leben in Sweida zu ermöglichen." },
+    "nature": { "title": "NATUR", "desc": "Natur schützen und Grünflächen vergrößern für ein nachhaltiges ökologisches Gleichgewicht." },
+    "creation": { "title": "PRODUKTION", "desc": "Innovation und Kleinprojekte fördern, um die lokale Wirtschaft zu stärken." },
+    "read_more": "Mehr lesen"
+  }
+}
