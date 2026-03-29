@@ -1,83 +1,90 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 const VisionPage = () => {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
 
   return (
-    <div className="bg-site-bg min-h-screen font-sans text-sweida-dark">
+    <div className="bg-site-bg min-h-screen font-sans text-sweida-dark antialiased" 
+         style={{ textRendering: 'optimizeLegibility', WebkitFontSmoothing: 'antialiased' }}>
       
-      {/* SECTION 1: HERO - الواجهة الترحيبية المحدثة */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center text-center overflow-hidden bg-black">
+      {/* SECTION 1: HERO */}
+      <section className="relative h-[85vh] w-full flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/hero2.jpg" 
-            className="w-full h-full object-cover object-center animate-hero-zoom opacity-60" 
+            className="w-full h-full object-cover object-center animate-hero-zoom scale-105" 
             alt="Hero Vision"
           />
-          {/* تدرج لوني عميق يربط الهوية بالخلفية */}
-          <div className="absolute inset-0 bg-gradient-to-b from-sweida-dark/90 via-transparent to-site-bg"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-site-bg"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-6">
-          <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase tracking-tight drop-shadow-2xl">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            /* تم تصغير الخط هنا فقط من text-7xl إلى text-5xl */
+            className="text-3xl md:text-5xl lg:text-5xl font-black text-white mb-6 uppercase tracking-tighter drop-shadow-2xl"
+          >
             {t('hero.title')}
-          </h1>
+          </motion.h1>
           
-          <p className="text-lg md:text-2xl text-gray-200 mb-12 font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl text-white/90 mb-12 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-lg"
+          >
             {t('hero.subtitle')}
-          </p>
+          </motion.p>
 
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-sweida-lime hover:bg-sweida-green text-white px-12 py-4 rounded-2xl font-black transition-all duration-500 shadow-2xl transform hover:scale-105 active:scale-95">
-              رؤيتنا للمستقبل
+            <button className="bg-sweida-lime hover:bg-sweida-green text-white px-10 py-4 rounded-none font-bold text-xs uppercase tracking-[0.2em] transition-all duration-500 shadow-xl transform hover:scale-105">
+              {t('vision.cta_future', 'OUR FUTURE VISION')}
             </button>
-            <button className="bg-white/10 backdrop-blur-md border-2 border-white text-white hover:bg-white hover:text-sweida-dark px-12 py-4 rounded-2xl font-black transition-all duration-500">
+            <button className="bg-white/5 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-sweida-dark px-10 py-4 rounded-none font-bold text-xs uppercase tracking-[0.2em] transition-all duration-500">
               {t('nav.support')}
             </button>
-          </div>
-
-          <div className="mt-16 text-sweida-lime font-black tracking-[0.5em] md:tracking-[1em] text-[10px] md:text-xs uppercase opacity-90 animate-pulse">
-            Empower • <span className="text-sweida-blue">Uplift</span> • Unite
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: IMPACT COUNTER - عداد الأثر المطور */}
+      {/* SECTION 2: IMPACT COUNTER - بقيت كما هي */}
       <section className="py-24 container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-sweida-dark mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-sweida-dark mb-4 tracking-tighter uppercase">
             {t('impact_title')}
           </h2>
-          <div className="w-24 h-2 bg-sweida-gradient mx-auto rounded-full"></div>
+          <div className="w-12 h-1 bg-sweida-lime mx-auto opacity-40"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {[
-            { label: t('stats.projects'), val: '30+', percent: 70, color: 'stroke-sweida-lime', text: 'text-sweida-lime' },
-            { label: t('stats.energy'), val: '4.5 MW+', percent: 50, color: 'stroke-sweida-blue', text: 'text-sweida-blue' },
-            { label: t('stats.beneficiaries'), val: '300+', percent: 90, color: 'stroke-sweida-green', text: 'text-sweida-green' },
+            { label: t('stats.projects_label'), val: '30+', percent: 70, color: 'stroke-sweida-lime', text: 'text-sweida-lime' },
+            { label: t('stats.energy_label'), val: '4.5 MW+', percent: 55, color: 'stroke-sweida-blue', text: 'text-sweida-blue' },
+            { label: t('stats.beneficiaries_label'), val: '25k+', percent: 90, color: 'stroke-sweida-green', text: 'text-sweida-green' },
           ].map((stat, i) => (
-            <div 
-              key={i} 
-              className="bg-white rounded-[3rem] p-12 shadow-xl shadow-slate-200/50 flex flex-col items-center group hover:-translate-y-2 transition-all duration-500 border border-slate-50"
-            >
-              <div className="relative w-44 h-44 flex items-center justify-center mb-8">
+            <div key={i} className="bg-white rounded-none p-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] flex flex-col items-center group hover:shadow-2xl transition-all duration-700 border border-slate-50">
+              <div className="relative w-36 h-36 flex items-center justify-center mb-8">
                 <svg className="w-full h-full -rotate-90">
-                  <circle cx="50%" cy="50%" r="45%" className="stroke-slate-100 fill-none" strokeWidth="6" />
-                  <circle
+                  <circle cx="50%" cy="50%" r="45%" className="stroke-slate-50 fill-none" strokeWidth="3" />
+                  <motion.circle
+                    initial={{ strokeDashoffset: 283 }}
+                    whileInView={{ strokeDashoffset: 283 - (283 * stat.percent) / 100 }}
+                    viewport={{ once: true }}
                     cx="50%" cy="50%" r="45%"
-                    className={`${stat.color} fill-none transition-all duration-1000`}
-                    strokeWidth="8"
+                    className={`${stat.color} fill-none`}
+                    strokeWidth="5"
                     strokeDasharray="283"
-                    strokeDashoffset={283 - (283 * stat.percent) / 100}
                     strokeLinecap="round"
+                    transition={{ duration: 2, ease: "circOut" }}
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className={`text-4xl font-black ${stat.text}`} dir="ltr">{stat.val}</span>
-                  <span className="text-[11px] text-sweida-gray font-bold uppercase tracking-widest mt-2 px-2 text-center leading-tight">
+                  <span className={`text-3xl font-black tracking-tighter ${stat.text}`} dir="ltr">{stat.val}</span>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1 text-center">
                     {stat.label}
                   </span>
                 </div>
@@ -87,26 +94,26 @@ const VisionPage = () => {
         </div>
       </section>
 
-      {/* SECTION 3: CORE PROJECTS - بطاقات الهوية الملونة */}
-      <section className="py-24 bg-white rounded-[5rem] mx-4 md:mx-10 shadow-inner">
+      {/* SECTION 3: CORE PROJECTS - بقيت كما هي */}
+      <section className="py-24 bg-white rounded-none border-y border-slate-100">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12">
             {[
-              { title: t('projects.water.title'), icon: '💧', color: 'text-sweida-blue', bg: 'bg-blue-50', desc: t('projects.water.desc') },
-              { title: t('projects.nature.title'), icon: '🌿', color: 'text-sweida-green', bg: 'bg-green-50', desc: t('projects.nature.desc') },
-              { title: t('projects.creation.title'), icon: '⚙️', color: 'text-sweida-lime', bg: 'bg-lime-50', desc: t('projects.creation.desc') },
+              { title: t('projects.water.title'), icon: '💧', color: 'text-sweida-blue', bg: 'bg-blue-50/30', desc: t('projects.water.desc') },
+              { title: t('projects.nature.title'), icon: '🌿', color: 'text-sweida-green', bg: 'bg-green-50/30', desc: t('projects.nature.desc') },
+              { title: t('projects.creation.title'), icon: '⚙️', color: 'text-sweida-lime', bg: 'bg-lime-50/30', desc: t('projects.creation.desc') },
             ].map((item, i) => (
-              <div key={i} className="bg-site-bg rounded-[4rem] p-10 text-center flex flex-col items-center group hover:bg-white hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-slate-100">
-                <div className={`w-24 h-24 rounded-[2rem] flex items-center justify-center text-5xl mb-8 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ${item.bg} ${item.color}`}>
+              <div key={i} className="bg-site-bg p-12 text-center flex flex-col items-center group hover:bg-white hover:shadow-2xl transition-all duration-700 border border-transparent hover:border-slate-50">
+                <div className={`w-16 h-16 rounded-xl flex items-center justify-center text-3xl mb-8 grayscale group-hover:grayscale-0 transition-all duration-500 ${item.bg}`}>
                   {item.icon}
                 </div>
-                <h3 className={`text-2xl font-black mb-4 tracking-tight ${item.color}`}>
+                <h3 className={`text-xl font-black mb-4 tracking-tighter uppercase ${item.color}`}>
                   {item.title}
                 </h3>
-                <p className="text-sweida-gray text-md mb-8 leading-relaxed font-medium line-clamp-3">
+                <p className="text-sweida-gray/80 text-sm mb-8 leading-relaxed font-medium">
                   {item.desc}
                 </p>
-                <button className={`mt-auto flex items-center gap-2 font-black text-sm uppercase tracking-widest ${item.color} group-hover:gap-4 transition-all`}>
+                <button className={`mt-auto flex items-center gap-2 font-bold text-[10px] uppercase tracking-[0.2em] ${item.color} opacity-60 group-hover:opacity-100 group-hover:gap-4 transition-all duration-300`}>
                   {t('projects.read_more')} <span>→</span>
                 </button>
               </div>
@@ -115,18 +122,18 @@ const VisionPage = () => {
         </div>
       </section>
 
-      {/* SECTION 4: VISION QUOTE - اقتباس الرؤية */}
-      <section className="py-24 container mx-auto px-6 text-center">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <span className="text-6xl text-sweida-lime opacity-30 font-serif">"</span>
-          <h2 className="text-3xl md:text-5xl font-black text-sweida-dark leading-tight">
-            نحن لا نبني مشاريع مؤقتة، بل نصمم <span className="text-sweida-blue">إرثاً مستداماً</span> يعيد تعريف العطاء في السويداء.
+      {/* SECTION 4: VISION QUOTE - بقيت كما هي */}
+      <section className="py-32 container mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto space-y-10">
+          <div className="w-12 h-0.5 bg-sweida-lime mx-auto opacity-30"></div>
+          <h2 className="text-2xl md:text-4xl font-black text-sweida-dark leading-snug tracking-tighter italic">
+            {t('vision.quote_main')}
           </h2>
-          <div className="w-16 h-1 bg-sweida-green mx-auto"></div>
-          <p className="text-sweida-gray font-bold tracking-widest uppercase text-sm">مجلس إدارة صندوق السويداء للتنمية</p>
+          <p className="text-slate-400 font-bold tracking-[0.4em] uppercase text-[9px] opacity-70">
+            {t('vision.board_msg')}
+          </p>
         </div>
       </section>
-
     </div>
   );
 };

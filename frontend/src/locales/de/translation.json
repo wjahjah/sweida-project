@@ -1,5 +1,5 @@
 {
- "nav": {
+  "nav": {
     "home": "Startseite",
     "about": "Über Uns",
     "projects": "Projekte",
@@ -9,45 +9,168 @@
     "support": "Jetzt Unterstützen"
   },
   "hero": {
-    "title": "Sweida Fonds für nachhaltige Entwicklung",
-    "subtitle": "Eine Vision, die auf den täglichen Bedürfnissen der Menschen basiert und praktische, nachhaltige Lösungen bietet."
+    "title": "Sweida Fonds für Nachhaltige Entwicklung",
+    "subtitle": "Eine Vision, die aus den täglichen Bedürfnissen der Menschen entsteht und praktische, nachhaltige Lösungen in den Bereichen Wasser, Energie und Dienstleistungen bietet."
   },
   "content": {
     "location_title": "Strategische Lage und Bedeutung",
-    "location_text": "Sweida genießt eine strategische Lage auf einem vulkanischen Plateau namens 'Jabal al-Arab', was ihr große geografische Bedeutung und fruchtbares Land verleiht.",
+    "location_text": "Sweida genießt eine einzigartige strategische Lage auf einem Vulkanplateau, bekannt als 'Jabal al-Arab', was ihm eine große geografische Bedeutung für den Handel und Transport verlieh und ein gemäßigtes Klima sowie fruchtbare Böden für die Landwirtschaft bot.",
     "vision_title": "Unsere Entwicklungsvision",
-    "vision_text1": "Wir streben danach, Wasserressourcen, Stromversorgung sowie Gesundheits- und Bildungsdienste durch einen gemeinnützigen Fonds zu verbessern.",
-    "vision_text2": "Unser Ziel ist es, ein integriertes Entwicklungsmodell aufzubauen, das die lokale Wirtschaft stärkt und die Lebensqualität verbessert.",
-    "water_energy_title": "Der Ausgangspunkt: Wasser und Energie",
-    "water_energy_text": "Ohne stabiles Wasser und zuverlässige Energie gibt es keine echte Entwicklung. Wir setzen auf Solarenergie für Brunnen und Pumpen.",
-    "sustainability_title": "Dimensionen der Nachhaltigkeit in Sweida",
+    "vision_text1": "Wir bemühen uns, Wasserressourcen, Elektrizität sowie Gesundheits- und Bildungsdienstleistungsprojekte durch unseren gemeinnützigen Fonds für nachhaltige Entwicklung zu verbessern.",
+    "vision_text2": "Unser Ziel ist es, ein integriertes Entwicklungsmodell aufzubauen, das das Gleichgewicht der lokalen Wirtschaft wiederherstellt, die Lebensqualität verbessert und die soziale Stabilität stärkt.",
+    "water_energy_title": "Ausgangspunkt: Wasser und Energie",
+    "water_energy_text": "Es gibt keine wirkliche Entwicklung ohne stabiles Wasser und zuverlässige Energie. Wir konzentrieren uns primär auf die Nutzung von Solarenergie für den Betrieb von Brunnen und Pumpen sowie auf die Bereitstellung von sauberem Strom für Krankenhäuser, Haushalte und den Industriesektor.",
+    "sustainability_title": "Dimensionen der Nachhaltigen Entwicklung in Sweida",
     "sustainability_list": [
       "Besseres Management von Wasser- und Stromressourcen.",
-      "Abhängigkeit von erneuerbaren Energien (Sonne und Wind).",
+      "Verlass auf erneuerbare Energien (Sonne und Wind).",
       "Verbesserung der Gesundheits- und Bildungsdienste.",
-      "Unterstützung der Viehzucht und landwirtschaftlicher Geräte."
+      "Unterstützung und Entwicklung der Viehzucht und landwirtschaftlicher Geräte."
     ]
   },
- "project_name": "Nachhaltiger Entwicklungsfonds Sweida",
-  "header_title": "Moderne Elektrizität, Das Geheimnis der Verbindungen",
-  "header_subtitle": "Auf dem Weg zu einer nachhaltigen Zukunft für das Gouvernement Sweida",
-  "footer_msg": "Wir setzen uns für Transparenz und regelmäßige Berichterstattung ein, um eine stabilere und erfolgreichere Zukunft für Sweida aufzubauen.",
+  "project_name": "Sweida Fonds für Nachhaltige Entwicklung",
+  "header_title": "Moderne Elektrizität: Das Geheimnis der Verbindungen",
+  "header_subtitle": "Auf dem Weg in eine nachhaltige Zukunft für das Gouvernement Sweida",
+  "footer_msg": "Wir verpflichten uns zu Transparenz und regelmäßiger Berichterstattung, um eine stabilere und wohlhabendere Zukunft für Sweida aufzubauen.",
   "footer": {
-    "about": "Über uns und Projekte",
+    "about": "Über Uns & Projekte",
     "contact": "Kontaktieren Sie uns",
     "news": "Nachrichtenzentrum",
     "privacy": "Datenschutz"
   },
   "impact_title": "Wirkungsindikator",
   "stats": {
-    "projects": "Projekte",
-    "energy": "Erneuerbare Energie",
-    "beneficiaries": "Begünstigte"
+    "projects_label": "Projekte",
+    "energy_label": "Erneuerbare Energie",
+    "beneficiaries_label": "Begünstigte"
   },
   "projects": {
-    "water": { "title": "WASSER", "desc": "Nachhaltige Wasserressourcen bereitstellen, um ein besseres Leben in Sweida zu ermöglichen." },
-    "nature": { "title": "NATUR", "desc": "Natur schützen und Grünflächen vergrößern für ein nachhaltiges ökologisches Gleichgewicht." },
-    "creation": { "title": "PRODUKTION", "desc": "Innovation und Kleinprojekte fördern, um die lokale Wirtschaft zu stärken." },
-    "read_more": "Mehr lesen"
+    "water": { "title": "Wasser", "desc": "Bereitstellung nachhaltiger Wasserressourcen für ein besseres Leben der Menschen in Sweida." },
+    "nature": { "title": "Umwelt", "desc": "Schutz der Natur und Erweiterung von Grünflächen für ein nachhaltiges ökologisches Gleichgewicht." },
+    "creation": { "title": "Produktion", "desc": "Förderung von Innovationen und Kleinprojekten zur Stärkung der lokalen Wirtschaft." },
+    "read_more": "Weiterlesen"
+  },
+"about": {
+  "hero_title": "Über Uns",
+  "hero_subtitle": "Sweida Fonds für Nachhaltige Entwicklung: Menschen bilden, Land schützen und Hoffnung zurückgeben.",
+  "location_title": "Strategische Lage",
+  "location_title_main": "Authentizität des Ortes und Tiefe der Geschichte",
+  "location_desc": "Sweida genießt eine strategische Lage auf dem vulkanischen 'Jabal al-Arab'-Plateau, das ihm ein gemäßigtes Klima und fruchtbares Land bescherte und es über die Jahrhunderte zu einem historischen und kommerziellen Zentrum machte.",
+  "vision_title": "Unsere Vision: Hier beginnt das Lebenselixier",
+  "vision_desc": "Wir installieren nicht nur Solarmodule; wir bauen ein integriertes Energiesystem, das Sonne und Wind kombiniert, um Krankenhäuser, Schulen und Wasserpumpen effizient zu betreiben.",
+  "pillars_title": "Unsere Säulen der Nachhaltigkeit",
+  "pillars_subtitle": "Wir arbeiten an der Integration von Entwicklungsdimensionen, um eine nachhaltige Zukunft zu gewährleisten.",
+  "dim_eco": "Wirtschaftliche Dimension",
+  "eco_desc": "Innovation im Wassermanagement, Entwicklung der Berglandwirtschaft und Unterstützung von Kleinprojekten zur Schaffung von Arbeitsplätzen.",
+  "dim_env": "Ökologische Dimension",
+  "env_desc": "Schutz der biologischen Vielfalt und Vertrauen auf erneuerbare Energien zur Bewältigung des Klimawandels.",
+  "dim_soc": "Soziale Dimension",
+  "soc_desc": "Gewährleistung von Gerechtigkeit beim Zugang zu Gesundheits- und Bildungsdiensten und Verringerung sozialer Klüfte.",
+  "energy_future": "Energiesystem der Zukunft",
+  "energy_items": {
+    "solar": "Solarenergie",
+    "wind": "Windenergie",
+    "smart": "Intelligente Netze",
+    "sustainable": "Umfassende Nachhaltigkeit"
+  },
+  "donor_msg": "Botschaft an Erfolgspartner",
+  "donor_desc": "Wir verpflichten uns zu absoluter Transparenz und regelmäßigen Berichten, die Ihre Beiträge in eine spürbare Wirkung vor Ort verwandeln.",
+  "download_report": "Transparenzbericht 2026 herunterladen",
+  "blockchain_verify": "Technologisch verifiziert für höchste Integritätsstandards"
+},
+
+  "projects_page": {
+    "subtitle": "Praktische Initiativen zur Selbstversorgung und zum Schutz der Bergwelt durch innovative Entwicklungslösungen.",
+    "budget_label": "Zugewiesenes Budget",
+    "view_details": "Details Anzeigen",
+    "cat_default": "Allgemeine Entwicklung",
+    "cat_energy": "Erneuerbare Energie",
+    "cat_water": "Wassersicherheit",
+    "cat_agri": "Landwirtschaftliche Entwicklung",
+    "project1_title": "Solarenergie für Krankenhäuser",
+    "project1_desc": "Ausstattung der wichtigsten Gesundheitszentren im Gouvernement mit intelligenten Solarsystemen, um die Kontinuität kritischer medizinischer Dienste zu gewährleisten.",
+    "project2_title": "Sanierung von Bergbrunnen",
+    "project2_desc": "Entwicklung von Pumpsystemen in artesischen Brunnen, um eine nachhaltige Wasserversorgung für alle Gemeinden sicherzustellen.",
+    "project3_title": "Unterstützung für Olivenbauern",
+    "project3_desc": "Bereitstellung technischer Unterstützung und moderner Ausrüstung für Landwirte, um die Qualität und Produktivität der Ernten in Sweida zu steigern.",
+    "no_projects": "Zur Zeit sind keine Projekte verfügbar."
+  },
+  "status": {
+    "completed": "Abgeschlossen",
+    "ongoing": "In Bearbeitung"
+  },
+  "common": {
+    "loading": "Laden..."
   }
+,
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Wir sind hier, um Ihre Anfragen zu beantworten und neue nachhaltige Partnerschaften aufzubauen.",
+    "info_title": "Kontaktinformationen",
+    "form_title": "Schreiben Sie uns eine Nachricht",
+    "name": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "subject": "Betreff",
+    "message": "Ihre Nachricht",
+    "send": "Nachricht senden",
+    "address": "Sweida, Syrien",
+    "phone": "+963 11 000 000",
+    "email_address": "info@sweidadevelopments.com"
+  },
+  "suggest": {
+    "title": "Projekt vorschlagen",
+    "desc": "Füllen Sie das Formular aus und unser Team wird Sie kontaktieren. Informationen werden automatisch lokal gespeichert.",
+    "personal_section": "Daten des Einreichers",
+    "project_section": "Projektdetails",
+    "name": "Vollständiger Name",
+    "phone": "Telefon (mit Ländercode)",
+    "email": "E-Mail-Adresse",
+    "location": "Dorf / Stadt",
+    "relation": "Beziehung zum Projekt (Inhaber/Koordinator/Gemeinde...)",
+    "bio": "Über den Einreicher (Bildung & Erfahrung)",
+    "project_title": "Projekttitel",
+    "category": "Projektkategorie",
+    "project_location": "Standort/Region",
+    "goal": "Hauptziel",
+    "beneficiaries": "Erwartete Begünstigte",
+    "cost": "Geschätzte Kosten",
+    "duration": "Erwartete Dauer",
+    "notes": "Zusätzliche Anmerkungen",
+    "save": "Speichern",
+    "send": "Senden"
+  },
+  "hero_slides": {
+    "slide1": { "tag": "Erbe", "title": "Berg-Erbe", "desc": "Wir schöpfen Inspiration aus unserer alten Geschichte in Sweida, um eine Zukunft zu bauen, die unserer Authentizität entspricht." },
+    "slide2": { "tag": "Nachhaltigkeit", "title": "Erneuerbare Energie", "desc": "Hin zu vollständiger Energieunabhängigkeit durch die natürlichen Ressourcen des Jabal al-Arab." },
+    "slide3": { "tag": "Gemeinschaft", "title": "Menschen bilden", "desc": "Die Investition in junge Talente ist der Grundstein unserer sozialen Renaissance." },
+    "slide4": { "tag": "Fruchtbarkeit", "title": "Segen des Landes", "desc": "Der fruchtbare Basaltboden von Sweida ist unsere Quelle des Stolzes und der nachhaltigen Ernährungssicherheit." }
+  },
+  "about_section": {
+    "title_part1": "Sweida: ",
+    "title_highlight1": "Authentizität",
+    "title_part2": " des Ortes und ",
+    "title_highlight2": "Ehrgeiz",
+    "title_part3": " für die Zukunft",
+    "description": "Sweida ist nicht nur eine Stadt; es ist ein massives Vulkanplateau namens 'Jabal al-Arab'. Diese Höhe bot ihm einen defensiven Vorteil und ein gemäßigtes Klima, das es über die Jahrhunderte zu einem fruchtbaren Korb und Handelszentrum machte."
+  },
+  "impact": {
+    "title": "Unsere Wirkung ",
+    "highlight": "in Zahlen"
+  },
+  "focus_areas": {
+    "main_title": "Schwerpunktbereiche des Fonds",
+    "water": { "title": "Wassermanagement", "desc": "Sicherung nachhaltiger Wasserquellen und Entwicklung von Bewässerungsnetzen zur Gewährleistung der Wassersicherheit." },
+    "energy": { "title": "Erneuerbare Energie", "desc": "Investition in Solar- und Windenergie zum Betrieb öffentlicher Einrichtungen und Brunnen." },
+    "industry": { "title": "Industrielle Entwicklung", "desc": "Unterstützung produktiver Projekte und kleiner Einrichtungen zur Stärkung der lokalen Wirtschaft." }
+  },
+  "cta": {
+    "title_part1": "Werden Sie Teil der",
+    "title_highlight": "Erfolgsgeschichte",
+    "description": "Ihr Beitrag heute bedeutet eine nachhaltige Zukunft für die kommenden Generationen im Land Sweida."
+  },
+  "vision": {
+  "cta_future": "UNSERE ZUKUNFTSVISION",
+  "quote_main": "Wir bauen keine vorübergehenden Projekte; wir entwerfen ein nachhaltiges Erbe, das das Wesen des Gebens in Sweida neu definiert.",
+  "board_msg": "VORSTAND - SWEIDA FONDS FÜR NACHHALTIGE ENTWICKLUNG"
+}
 }

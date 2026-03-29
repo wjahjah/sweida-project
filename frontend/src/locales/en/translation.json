@@ -1,5 +1,5 @@
 {
- "nav": {
+  "nav": {
     "home": "Home",
     "about": "About Us",
     "projects": "Projects",
@@ -10,27 +10,27 @@
   },
   "hero": {
     "title": "Sweida Sustainable Development Fund",
-    "subtitle": "A vision driven by daily needs, providing sustainable solutions in water, energy, and services."
+    "subtitle": "A vision originating from people's daily needs, providing practical and sustainable solutions in water, energy, and services."
   },
   "content": {
-    "location_title": "Strategic Location",
-    "location_text": "Sweida enjoys a strategic location on a volcanic plateau known as 'Jabal al-Arab', providing geographical importance for trade and fertile lands.",
-    "vision_title": "Our Developmental Vision",
-    "vision_text1": "We aim to improve water, electricity, health, and education through a non-profit fund.",
-    "vision_text2": "Our goal is an integrated model that restores economic balance and enhances quality of life.",
-    "water_energy_title": "Starting Point: Water & Energy",
-    "water_energy_text": "Real development starts with stable water and reliable energy. We focus on solar power for wells and clean electricity for hospitals.",
-    "sustainability_title": "Sustainability Dimensions",
+    "location_title": "Strategic Location and Importance",
+    "location_text": "Sweida enjoys a unique strategic location on a volcanic plateau known as 'Jabal al-Arab', which has given it great geographical importance in facilitating trade and transport, providing a moderate climate and fertile lands suitable for agriculture.",
+    "vision_title": "Our Development Vision",
+    "vision_text1": "We strive to improve water resources, electricity, and health and educational service projects through our non-profit sustainable development fund.",
+    "vision_text2": "Our goal is to build an integrated developmental model that restores balance to the local economy, improves quality of life, and enhances social stability.",
+    "water_energy_title": "Starting Point: Water and Energy",
+    "water_energy_text": "There is no real development without stable water and reliable energy. We focus first on using solar energy to operate wells and pumps, and providing clean electricity for hospitals, homes, and the industrial sector.",
+    "sustainability_title": "Dimensions of Sustainable Development in Sweida",
     "sustainability_list": [
-      "Better water and electricity management.",
-      "Reliance on renewable energy (Solar & Wind).",
+      "Better management of water and electricity resources.",
+      "Reliance on renewable energy (solar and wind).",
       "Improving health and educational services.",
-      "Supporting livestock and agricultural equipment."
+      "Supporting and developing livestock and agricultural equipment."
     ]
   },
- "project_name": "Sweida Sustainable Development Fund",
-  "header_title": "Modern Electricity, The Secret of Connections",
-  "header_subtitle": "Towards a Sustainable Future for Sweida Governorate",
+  "project_name": "Sweida Sustainable Development Fund",
+  "header_title": "Modern Electricity: The Secret of Connections",
+  "header_subtitle": "Towards a sustainable future for Sweida Governorate",
   "footer_msg": "We are committed to transparency and periodic reporting to build a more stable and prosperous future for Sweida.",
   "footer": {
     "about": "About Us & Projects",
@@ -38,18 +38,139 @@
     "news": "News Center",
     "privacy": "Privacy Policy"
   },
-  
-  "impact_title": "Impact Counter",
+  "impact_title": "Impact Indicator",
   "stats": {
-    "projects": "Projects",
-    "energy": "Renewable Energy",
-    "beneficiaries": "Beneficiaries"
+    "projects_label": "Projects",
+    "energy_label": "Renewable Energy",
+    "beneficiaries_label": "Beneficiaries"
   },
   "projects": {
-    "water": { "title": "WATER", "desc": "Providing sustainable water resources to ensure a better life for Sweida." },
-    "nature": { "title": "NATURE", "desc": "Protecting nature and increasing green spaces for a sustainable ecological balance." },
-    "creation": { "title": "CREATION", "desc": "Supporting innovation and small projects to boost the local economy." },
+    "water": { "title": "Water", "desc": "Providing sustainable water resources to ensure a better life for the people of Sweida." },
+    "nature": { "title": "Environment", "desc": "Protecting nature and increasing green spaces for a sustainable ecological balance." },
+    "creation": { "title": "Production", "desc": "Supporting innovation and small projects to boost the local economy." },
     "read_more": "Read More"
-  }
+  },
+"about": {
+  "hero_title": "Who We Are",
+  "hero_subtitle": "Sweida Sustainable Development Fund: Building people, protecting land, and restoring hope.",
+  "location_title": "Strategic Location",
+  "location_title_main": "Authenticity of Place and Depth of History",
+  "location_desc": "Sweida enjoys a strategic location on the volcanic 'Jabal al-Arab' plateau, which provided it with a moderate climate and fertile land, making it a historic and commercial center through the ages.",
+  "vision_title": "Our Vision: The Lifeblood Starts Here",
+  "vision_desc": "We don't just install solar panels; we build an integrated energy system that combines sun and wind to power hospitals, schools, and water pumps efficiently.",
+  "pillars_title": "Our Sustainability Pillars",
+  "pillars_subtitle": "We work to integrate developmental dimensions to ensure a sustainable future.",
+  "dim_eco": "Economic Dimension",
+  "eco_desc": "Innovation in water management, developing mountain agriculture, and supporting small projects to create jobs.",
+  "dim_env": "Environmental Dimension",
+  "env_desc": "Protecting biodiversity and relying on renewable energy to face climate change.",
+  "dim_soc": "Social Dimension",
+  "soc_desc": "Ensuring equity in access to health and educational services and reducing social gaps.",
+  "energy_future": "Future Energy System",
+  "energy_items": {
+    "solar": "Solar Power",
+    "wind": "Wind Power",
+    "smart": "Smart Grids",
+    "sustainable": "Total Sustainability"
+  },
+  "donor_msg": "A Message to Success Partners",
+  "donor_desc": "We are committed to absolute transparency and periodic reports that transform your contributions into a tangible impact on the ground.",
+  "download_report": "Download Transparency Report 2026",
+  "blockchain_verify": "Technologically verified for the highest integrity standards"
+},
 
+  "projects_page": {
+    "subtitle": "Practical initiatives aimed at achieving self-sufficiency and protecting the mountain environment through innovative development solutions.",
+    "budget_label": "Allocated Budget",
+    "view_details": "View Details",
+    "cat_default": "General Development",
+    "cat_energy": "Renewable Energy",
+    "cat_water": "Water Security",
+    "cat_agri": "Agricultural Development",
+    "project1_title": "Solar Energy for Hospitals",
+    "project1_desc": "Equipping major health centers in the governorate with smart solar systems to ensure the continuity of critical medical services.",
+    "project2_title": "Mountain Well Rehabilitation",
+    "project2_desc": "Developing pumping systems in artesian wells to ensure sustainable water access for all residential communities.",
+    "project3_title": "Support for Olive Farmers",
+    "project3_desc": "Providing technical support and modern equipment to farmers to increase the quality and productivity of crops in Sweida.",
+    "no_projects": "No projects available at the moment."
+  },
+  "status": {
+    "completed": "Completed",
+    "ongoing": "In Progress"
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+,
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to answer your inquiries and build new sustainable partnerships.",
+    "info_title": "Contact Information",
+    "form_title": "Send us a Message",
+    "name": "Full Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message",
+    "address": "Sweida, Syria",
+    "phone": "+963 11 000 000",
+    "email_address": "info@sweidadevelopments.com"
+  },
+  "suggest": {
+    "title": "Propose a Project",
+    "desc": "Fill out the following form and our team will contact you. Information is automatically saved locally so it is not lost while typing.",
+    "personal_section": "Project Submitter Data",
+    "project_section": "Project Details",
+    "name": "Full Name",
+    "phone": "Phone (with country code)",
+    "email": "Email Address",
+    "location": "Village / City",
+    "relation": "Relation to Project (Owner/Coordinator/Municipality...)",
+    "bio": "About Submitter (Education & Experience)",
+    "project_title": "Project Title",
+    "category": "Project Category",
+    "project_location": "Location/Region",
+    "goal": "Main Goal",
+    "beneficiaries": "Expected Beneficiaries",
+    "cost": "Estimated Cost",
+    "duration": "Expected Duration",
+    "notes": "Additional Notes",
+    "save": "Save",
+    "send": "Send"
+  },
+  "hero_slides": {
+    "slide1": { "tag": "Heritage", "title": "Mountain Heritage", "desc": "We draw inspiration from our ancient history in Sweida to build a future that matches our authenticity." },
+    "slide2": { "tag": "Sustainability", "title": "Renewable Energy", "desc": "Towards complete energy independence relying on the natural resources of Jabal al-Arab." },
+    "slide3": { "tag": "Community", "title": "Building People", "desc": "Investing in young talents and skills development is the cornerstone of our social renaissance." },
+    "slide4": { "tag": "Fertility", "title": "Bounty of the Land", "desc": "Sweida's fertile basaltic soil is our source of pride and sustainable food security." }
+  },
+  "about_section": {
+    "title_part1": "Sweida: ",
+    "title_highlight1": "Authenticity",
+    "title_part2": " of Place and ",
+    "title_highlight2": "Ambition",
+    "title_part3": " for the Future",
+    "description": "Sweida is not just a city; it is a solid volcanic plateau known as 'Jabal al-Arab'. This elevation gave it a defensive advantage and a moderate climate that made it a fertile food basket and a commercial center connecting caravans through the ages."
+  },
+  "impact": {
+    "title": "Our Impact ",
+    "highlight": "in Numbers"
+  },
+  "focus_areas": {
+    "main_title": "Fund Focus Areas",
+    "water": { "title": "Water Management", "desc": "Securing sustainable water sources and developing irrigation networks to ensure water security." },
+    "energy": { "title": "Renewable Energy", "desc": "Investing in solar and wind energy to operate public facilities and wells." },
+    "industry": { "title": "Industrial Development", "desc": "Supporting productive projects and small facilities to boost the local economy." }
+  },
+  "cta": {
+    "title_part1": "Be Part of the",
+    "title_highlight": "Success Story",
+    "description": "Your contribution today means a sustainable future for the coming generations in the land of Sweida."
+  },
+  "vision": {
+  "cta_future": "OUR FUTURE VISION",
+  "quote_main": "We don’t just build temporary projects; we design a sustainable legacy that redefines the essence of giving in Sweida.",
+  "board_msg": "BOARD OF DIRECTORS - SWEIDA SUSTAINABLE DEVELOPMENT FUND"
+}
 }

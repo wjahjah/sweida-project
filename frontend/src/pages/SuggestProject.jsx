@@ -1,163 +1,186 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import adminService from '../api/adminService'; 
 
 const SuggestProject = () => {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
 
+  // 1. حالة النموذج لتخزين مدخلات المستخدم بالكامل
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    location: '',
+    title: '',
+    category: '',
+    goal: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // تحديث البيانات عند الكتابة في أي حقل
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // 2. دالة إرسال الطلب إلى السيرفر
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // التحقق من الحقول الإجبارية قبل الإرسال
+    if (!formData.name || !formData.phone || !formData.title || !formData.goal) {
+      alert(isRtl ? "يرجى ملء كافة الحقول المطلوبة التي تحمل علامة (*)" : "Please fill all required fields (*)");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // تجهيز الكائن ليتوافق مع هيكلية الجداول (Projects + Project_Translations)
+    const projectPayload = {
+      // بيانات التواصل (تخزن في جدول Projects)
+      suggested_by_name: formData.name,
+      suggested_by_phone: formData.phone,
+      suggested_by_email: formData.email,
+      suggested_by_location: formData.location, 
+      category: formData.category, // تصنيف المشروع
+      
+      // إعدادات الحالة والأمان
+      target_budget: 0, 
+      is_user_proposal: true, 
+      status: 'PENDING_APPROVAL', 
+
+      // البيانات النصية المترجمة (تخزن في جدول Project_Translations)
+      translations: [
+        {
+          language: i18n.language, 
+          title: formData.title,
+          description: formData.goal
+        }
+      ]
+    };
+
+    try {
+      // استدعاء التابع من adminService لإرسال البيانات
+      await adminService.submitProjectProposal(projectPayload);
+      
+      alert(isRtl ? "تم إرسال مقترحك بنجاح! سيتم مراجعته من قبل الإدارة قريباً." : "Proposal sent successfully! Our team will review it soon.");
+      
+      // تفريغ النموذج بعد النجاح لتهيئته لطلب جديد
+      setFormData({ name: '', phone: '', email: '', location: '', title: '', category: '', goal: '' });
+    } catch (error) {
+      console.error("Submission Error:", error);
+      alert(isRtl ? "عذراً، حدث خطأ أثناء الإرسال. يرجى المحاولة لاحقاً." : "Sorry, an error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-20 font-sans" dir={i18n.dir()}>
-      <div className="container mx-auto px-4 max-w-5xl">
-        
-        {/* العناوين العلوية مع الشريط المتدرج */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-black text-slate-800 mb-4 tracking-tight">
+    <div className="min-h-screen bg-white font-sans antialiased" dir={i18n.dir()}>
+      {/* رأس الصفحة */}
+      <header className="relative h-[45vh] flex items-center justify-center bg-slate-100 border-b border-slate-200">
+        <div className="container mx-auto px-6 text-center z-10">
+          <motion.h1 
+            initial={{ opacity: 0, y: -10 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tighter"
+          >
             {t('suggest.title')}
-          </h1>
-          <div className="w-32 h-2 bg-gradient-to-r from-orange-400 via-[#58c322] to-blue-500 mx-auto mb-8 rounded-full shadow-sm"></div>
-          <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          </motion.h1>
+          <p className="text-sm md:text-base text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
             {t('suggest.desc')}
           </p>
         </div>
+      </header>
 
-        {/* الحاوية الرئيسية للنموذج - تصميم كرتوني نظيف */}
-        <div className="bg-white rounded-[3rem] shadow-sm border border-gray-100 overflow-hidden">
-          <form className="p-8 md:p-14 space-y-16">
+      {/* جسم النموذج */}
+      <div className="container mx-auto px-6 max-w-4xl relative z-20 -mt-20 pb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="bg-white border border-slate-100 shadow-[0_30px_60px_rgba(0,0,0,0.05)] overflow-hidden"
+        >
+          <form className="p-8 md:p-16 space-y-16" onSubmit={handleSubmit}>
             
             {/* القسم الأول: بيانات مقدم المشروع */}
-            <section className="animate-in fade-in duration-700">
-              <div className="flex items-center gap-3 mb-10 text-slate-800 border-b border-gray-50 pb-5">
-                <span className="text-3xl filter drop-shadow-sm">👤</span>
-                <h2 className="text-2xl font-bold">{t('suggest.personal_section')}</h2>
+            <section className="space-y-8">
+              <div className="flex items-center gap-3 border-b pb-4">
+                <span className="text-xl">👤</span>
+                <h2 className="text-lg font-black text-slate-800 uppercase tracking-tighter">
+                  {t('suggest.personal_section')}
+                </h2>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 flex gap-1 italic">
-                    {t('suggest.name')} <span className="text-red-500">*</span>
-                  </label>
-                  <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] focus:border-transparent outline-none transition-all shadow-sm hover:border-gray-300" />
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t('suggest.name')} *</label>
+                  <input name="name" value={formData.name} onChange={handleChange} className="w-full bg-slate-50 p-4 outline-none focus:bg-white focus:border-[#58c322] border-b border-transparent transition-all text-sm font-medium" required />
                 </div>
-
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 flex gap-1 italic">
-                    {t('suggest.phone')} <span className="text-red-500">*</span>
-                  </label>
-                  <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] focus:border-transparent outline-none transition-all shadow-sm text-left" dir="ltr" placeholder="+963" />
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t('suggest.phone')} *</label>
+                  <input name="phone" value={formData.phone} onChange={handleChange} dir="ltr" className="w-full bg-slate-50 p-4 outline-none focus:bg-white focus:border-[#58c322] border-b border-transparent transition-all text-sm font-medium text-left" placeholder="+963" required />
                 </div>
-
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.email')}</label>
-                  <input type="email" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] focus:border-transparent outline-none transition-all shadow-sm" />
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t('suggest.email')}</label>
+                  <input name="email" type="email" value={formData.email} onChange={handleChange} className="w-full bg-slate-50 p-4 focus:bg-white border-b border-transparent focus:border-[#58c322] outline-none transition-all text-sm font-medium" />
                 </div>
-
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.location')}</label>
-                  <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] focus:border-transparent outline-none transition-all shadow-sm" />
-                </div>
-
-                <div className="md:col-span-2 space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.relation')}</label>
-                  <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] focus:border-transparent outline-none transition-all shadow-sm" placeholder="مثال: صاحب فكرة / منسق / بلدية..." />
-                </div>
-
-                <div className="md:col-span-2 space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.bio')}</label>
-                  <textarea rows="4" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] focus:border-transparent outline-none transition-all shadow-sm resize-none"></textarea>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t('suggest.location')}</label>
+                  <input name="location" value={formData.location} onChange={handleChange} className="w-full bg-slate-50 p-4 focus:bg-white border-b border-transparent focus:border-[#58c322] outline-none transition-all text-sm font-medium" />
                 </div>
               </div>
             </section>
 
             {/* القسم الثاني: تفاصيل المشروع */}
-            <section className="animate-in fade-in duration-1000">
-              <div className="flex items-center gap-3 mb-10 text-slate-800 border-b border-gray-50 pb-5">
-                <span className="text-3xl filter drop-shadow-sm">📌</span>
-                <h2 className="text-2xl font-bold">{t('suggest.project_section')}</h2>
+            <section className="space-y-8">
+              <div className="flex items-center gap-3 border-b pb-4">
+                <span className="text-xl">💡</span>
+                <h2 className="text-lg font-black text-slate-800 uppercase tracking-tighter">
+                  {t('suggest.project_section')}
+                </h2>
               </div>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="md:col-span-2 space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 flex gap-1 italic">
-                    {t('suggest.project_title')} <span className="text-red-500">*</span>
-                  </label>
-                  <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] focus:border-transparent outline-none transition-all shadow-sm" />
-                </div>
-
-                {/* حقول التصنيف مع إصلاح مشكلة الخطوط */}
-                <div className="space-y-3 relative">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.category')}</label>
-                  <div className="relative">
-                    <select 
-                      className="w-full bg-white border border-gray-200 rounded-2xl p-4 outline-none transition-all shadow-sm appearance-none cursor-pointer focus:ring-2 focus:ring-[#58c322] focus:border-transparent pr-4"
-                      style={{ WebkitAppearance: 'none', MozAppearance: 'none' }}
-                    >
-                      <option value="">— {t('common.select') || 'اختر'} —</option>
-                      <option value="energy">طاقة متجددة</option>
-                      <option value="water">تنمية مائية</option>
-                      <option value="edu">خدمات تعليمية</option>
-                      <option value="health">قطاع صحي</option>
-                    </select>
-                    {/* أيقونة السهم المخصصة */}
-                    <div className={`absolute inset-y-0 ${isRtl ? 'left-4' : 'right-4'} flex items-center pointer-events-none text-gray-400`}>
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t('suggest.project_title')} *</label>
+                    <input name="title" value={formData.title} onChange={handleChange} className="w-full bg-slate-50 p-4 focus:bg-white border-b border-transparent focus:border-[#58c322] outline-none text-sm font-medium" required />
                   </div>
-                  <p className="text-[11px] text-[#58c322] font-bold px-2">يمكنك اختيار الأقرب فقط.</p>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t('suggest.category')}</label>
+                    <select name="category" value={formData.category} onChange={handleChange} className="w-full bg-slate-50 p-4 focus:bg-white border-b border-transparent focus:border-[#58c322] outline-none text-sm font-medium cursor-pointer">
+                      <option value="">{t('common.select')}</option>
+                      <option value="energy">Energy & Tech</option>
+                      <option value="water">Water Resources</option>
+                      <option value="education">Education</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
                 </div>
-
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.project_location')}</label>
-                  <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] outline-none shadow-sm" />
-                </div>
-
-                <div className="md:col-span-2 space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 flex gap-1 italic">
-                    {t('suggest.goal')} <span className="text-red-500">*</span>
-                  </label>
-                  <textarea rows="4" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] outline-none shadow-sm resize-none"></textarea>
-                </div>
-
-                <div className="md:col-span-2 space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.beneficiaries')}</label>
-                  <textarea rows="3" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] outline-none shadow-sm resize-none"></textarea>
-                </div>
-
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.cost')}</label>
-                  <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] outline-none shadow-sm" placeholder="10,000 USD" />
-                </div>
-
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.duration')}</label>
-                  <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] outline-none shadow-sm" />
-                </div>
-
-                <div className="md:col-span-2 space-y-3">
-                  <label className="text-sm font-bold text-slate-700 px-1 italic">{t('suggest.notes')}</label>
-                  <textarea rows="3" className="w-full bg-white border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-[#58c322] outline-none shadow-sm resize-none"></textarea>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t('suggest.goal')} *</label>
+                  <textarea name="goal" value={formData.goal} onChange={handleChange} rows="5" className="w-full bg-slate-50 p-4 focus:bg-white border-b border-transparent focus:border-[#58c322] outline-none text-sm font-medium resize-none" required />
                 </div>
               </div>
             </section>
 
-            {/* الأزرار الختامية */}
-            <div className="pt-10 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
-              <p className="text-[13px] text-gray-400 italic text-center md:text-right max-w-sm">
-                * الحقول المحددة بالنجمة إلزامية. سيتم معالجة بياناتك بسرية تامة لغرض التقييم فقط.
+            {/* تذييل النموذج والأزرار */}
+            <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-slate-50">
+              <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest max-w-xs italic text-center md:text-left leading-relaxed">
+                {t('suggest.disclaimer')}
               </p>
-              <div className="flex gap-5 w-full md:w-auto">
-                <button type="button" className="flex-1 md:flex-none flex items-center justify-center gap-2 px-10 py-4 rounded-2xl border-2 border-gray-200 text-slate-600 font-bold hover:bg-gray-50 transition-all active:scale-95">
-                  <span className="text-xl">💾</span> {t('suggest.save')}
-                </button>
-                <button type="submit" className="flex-1 md:flex-none flex items-center justify-center gap-2 px-12 py-4 rounded-2xl bg-[#58c322] text-white font-black text-lg hover:bg-[#4aa31d] shadow-lg shadow-green-100 transition-all transform active:scale-95">
-                   {t('suggest.send')} <span className="text-xl">📩</span>
-                </button>
-              </div>
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className={`flex-[2] min-w-[200px] md:px-14 py-4 bg-[#58c322] text-white font-black text-[10px] uppercase tracking-widest shadow-xl transition-all active:scale-95 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#4ea81e]'}`}
+              >
+                {isSubmitting ? (isRtl ? "جاري الإرسال..." : "Sending...") : t('suggest.send')}
+              </button>
             </div>
-
           </form>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

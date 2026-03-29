@@ -6,11 +6,14 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import AdminLayout from './layouts/AdminLayout';
 
-// (ملاحظة: يمكنك إنشاء هذه الصفحات لاحقاً، حالياً سنضع مكونات مؤقتة لها)
-const Projects = () => <div className="p-4 bg-white rounded-3xl shadow-sm font-bold">Projects Management Screen</div>;
-const Donors = () => <div className="p-4 bg-white rounded-3xl shadow-sm font-bold">Donors List</div>;
-const Team = () => <div className="p-4 bg-white rounded-3xl shadow-sm font-bold">Team Members</div>;
-
+// استيراد صفحات المشاريع الحقيقية
+import Projects from './pages/projects/Projects';
+import AddProject from './pages/projects/AddProject';
+import EditProject from './pages/projects/EditProject'; 
+import Donors from './pages/donors/Donors';
+import Team from './pages/team/Team';
+import Financials from './pages/financials/Financials';
+import Roles from './pages/roles/Roles'; // تأكد أن المسار يطابق مكان ملف Roles.jsx عندك
 // 2. مكون حماية المسارات
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('adminToken');
@@ -27,7 +30,7 @@ function App() {
         {/* صفحة الدخول - بدون سايد بار */}
         <Route path="/login" element={<Login />} />
 
-        {/* مسارات لوحة التحكم - كلها داخل الـ AdminLayout */}
+        {/* جميع مسارات لوحة التحكم محمية وداخل AdminLayout */}
         <Route path="/" element={
           <ProtectedRoute>
             <AdminLayout>
@@ -44,6 +47,7 @@ function App() {
           </ProtectedRoute>
         } />
 
+        {/* مسارات المشاريع - العرض والإضافة */}
         <Route path="/projects" element={
           <ProtectedRoute>
             <AdminLayout>
@@ -52,6 +56,21 @@ function App() {
           </ProtectedRoute>
         } />
 
+        <Route path="/projects/add" element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <AddProject />
+            </AdminLayout>
+          </ProtectedRoute>
+        } />
+             <Route path="/projects/edit/:id" element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <EditProject />
+            </AdminLayout>
+          </ProtectedRoute>
+        } />
+      
         <Route path="/donors" element={
           <ProtectedRoute>
             <AdminLayout>
@@ -67,6 +86,30 @@ function App() {
             </AdminLayout>
           </ProtectedRoute>
         } />
+{/* مسار الماليات والعملات */}
+<Route path="/currencies" element={
+  <ProtectedRoute>
+    <AdminLayout>
+      <Financials />
+    </AdminLayout>
+  </ProtectedRoute>
+} />
+<Route path="/roles" element={
+  <ProtectedRoute>
+    <AdminLayout>
+      <Roles />
+    </AdminLayout>
+  </ProtectedRoute>
+} />
+        {/* مسار سجل الرقابة الذي أضفناه للسايد بار */}
+        <Route path="/audit-logs" element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <div className="p-8 bg-white rounded-[2.5rem] font-black uppercase tracking-widest text-slate-400 text-center">Audit Logs System</div>
+            </AdminLayout>
+          </ProtectedRoute>
+        } />
+        
 
         {/* إعادة توجيه أي مسار خاطئ */}
         <Route path="*" element={<Navigate to="/login" replace />} />
