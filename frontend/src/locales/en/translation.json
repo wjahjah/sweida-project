@@ -32,8 +32,9 @@
   "header_title": "Modern Electricity: The Secret of Connections",
   "header_subtitle": "Towards a sustainable future for Sweida Governorate",
   "footer_msg": "We are committed to transparency and periodic reporting to build a more stable and prosperous future for Sweida.",
-  "footer": {
-    "about": "About Us & Projects",
+"footer": {
+    "about": "About Us",
+    "project": "Projects",
     "contact": "Contact Us",
     "news": "News Center",
     "privacy": "Privacy Policy"

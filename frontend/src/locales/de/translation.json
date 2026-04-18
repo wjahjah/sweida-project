@@ -33,9 +33,10 @@
   "header_subtitle": "Auf dem Weg in eine nachhaltige Zukunft für das Gouvernement Sweida",
   "footer_msg": "Wir verpflichten uns zu Transparenz und regelmäßiger Berichterstattung, um eine stabilere und wohlhabendere Zukunft für Sweida aufzubauen.",
   "footer": {
-    "about": "Über Uns & Projekte",
-    "contact": "Kontaktieren Sie uns",
-    "news": "Nachrichtenzentrum",
+    "about": "Über uns",
+    "project": "Projekte",
+    "contact": "Kontakt",
+    "news": "Nachrichten",
     "privacy": "Datenschutz"
   },
   "impact_title": "Wirkungsindikator",

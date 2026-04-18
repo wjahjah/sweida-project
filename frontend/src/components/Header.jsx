@@ -34,20 +34,20 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-[100] transition-all duration-300 ${scrolled ? 'shadow-xl bg-white/95 backdrop-blur-sm' : 'bg-white'}`} dir={i18n.dir()}>
+    <header className={`fixed top-0 w-full z-[100] transition-all duration-300 ${scrolled ? 'shadow-xl bg-white/95 backdrop-blur-md' : 'bg-white'}`} dir={i18n.dir()}>
       
-      {/* 1. التوب بار (أزرار اللغات الأربع) */}
+      {/* 1. التوب بار (أزرار اللغات) */}
       <div className="bg-slate-50 border-b border-gray-100 py-2">
         <div className="container mx-auto px-4 md:px-8 flex justify-end items-center gap-3">
           <div className="flex items-center gap-1 bg-white p-1 rounded-full border border-gray-200 shadow-sm">
-            {['ar', 'en', 'de', 'fr'].map((lang, idx) => (
+            {['ar', 'en', 'de', 'fr'].map((lang) => (
               <button 
                 key={lang}
                 onClick={() => changeLanguage(lang)} 
                 className={`px-3 py-1 rounded-full text-[11px] font-black uppercase transition-all ${
                   i18n.language === lang 
-                  ? 'bg-sweida-dark text-white' 
-                  : 'text-gray-400 hover:text-sweida-green'
+                  ? 'bg-sweida-dark text-white shadow-sm' 
+                  : 'text-gray-400 hover:text-sweida-green hover:bg-slate-50'
                 }`}
               >
                 {lang}
@@ -58,14 +58,14 @@ const Header = () => {
       </div>
 
       {/* 2. الناف بار الرئيسي */}
-      <nav className="py-2">
-        <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+      <nav className="relative py-2">
+        <div className="container mx-auto px-4 md:px-8 flex justify-between items-center relative z-20 bg-transparent">
           
-          {/* زر الموبايل واللوغو الصغير للموبايل */}
-          <div className="flex lg:hidden items-center gap-3">
+          {/* زر الموبايل + زر الدعم المصغر للموبايل */}
+          <div className="flex lg:hidden items-center gap-2 md:gap-3">
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-sweida-dark focus:outline-none p-2 hover:bg-slate-100 rounded-xl transition-colors"
+              className="text-sweida-dark focus:outline-none p-2 hover:bg-slate-100 rounded-xl transition-colors relative z-50"
             >
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
@@ -75,9 +75,16 @@ const Header = () => {
                 )}
               </svg>
             </button>
+
+            <Link 
+              to="/monthly-support" 
+              className="bg-sweida-gradient text-white px-4 py-2 rounded-xl font-black text-[11px] shadow-lg shadow-sweida-green/20 active:scale-95 transition-all relative z-50"
+            >
+              {t('nav.support')}
+            </Link>
           </div>
 
-          {/* القائمة لسطح المكتب (Desktop) - يسار في الـ RTL */}
+          {/* القائمة لسطح المكتب (Desktop) */}
           <div className="hidden lg:flex items-center gap-8 text-[15px] font-black uppercase tracking-tight">
             {navLinks.map((link) => (
               <Link 
@@ -96,8 +103,8 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* اللوغو - يمين في الـ RTL */}
-          <Link to="/" className="flex flex-col items-center group relative z-10">
+          {/* اللوغو */}
+          <Link to="/" className="flex flex-col items-center group relative z-10" onClick={() => setIsOpen(false)}>
             <div className={`transition-all duration-500  ${scrolled ? 'scale-90' : 'scale-110'}`}>
                <img 
                 src="/images/sweida-logo.png" 
@@ -108,22 +115,39 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* القائمة المنسدلة للموبايل */}
-        <div className={`lg:hidden fixed inset-0 top-[120px] bg-white transition-all duration-500 ease-in-out ${isOpen ? 'translate-x-0 opacity-100' : (isRtl ? 'translate-x-full' : '-translate-x-full') + ' opacity-0'}`}>
-          <div className="flex flex-col p-8 space-y-6 text-right font-black text-2xl text-sweida-dark">
-            {navLinks.map((link, idx) => (
-              <Link 
-                key={link.path} 
-                to={link.path} 
-                onClick={() => setIsOpen(false)} 
-                className="hover:text-sweida-green flex items-center gap-4 border-b border-slate-50 pb-4"
-              >
-                <span className="w-2 h-2 bg-sweida-lime rounded-full"></span>
-                {t(link.key)}
-              </Link>
-            ))}
-            <Link to="/monthly-support" onClick={() => setIsOpen(false)} className="text-sweida-blue pt-4">{t('nav.support')}</Link>
-          
+        {/* ----------------- القائمة المنسدلة للموبايل ----------------- */}
+        
+        {/* خلفية تظليل الشاشة */}
+        <div 
+          className={`lg:hidden absolute top-full left-0 w-full h-[100vh] bg-slate-900/20 backdrop-blur-sm transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+          onClick={() => setIsOpen(false)}
+        ></div>
+
+        {/* صندوق القائمة المنسدلة (بدون زر الدعم الداخلي) */}
+        <div 
+          className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl rounded-b-[2rem] border-t border-slate-100 overflow-hidden origin-top transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] ${isOpen ? 'scale-y-100 opacity-100 visible' : 'scale-y-0 opacity-0 invisible'}`}
+        >
+          <div className="flex flex-col p-6 space-y-2">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link 
+                  key={link.path} 
+                  to={link.path} 
+                  onClick={() => setIsOpen(false)} 
+                  className={`flex items-center justify-between p-4 rounded-2xl transition-all duration-300 ${isActive ? 'bg-sweida-green/10 text-sweida-green' : 'text-slate-600 hover:bg-slate-50 hover:text-sweida-dark'}`}
+                >
+                  <div className="flex items-center gap-4">
+                    <span className={`w-2 h-2 rounded-full transition-colors ${isActive ? 'bg-sweida-lime shadow-[0_0_8px_rgba(88,195,34,0.6)]' : 'bg-slate-200'}`}></span>
+                    <span className="font-black text-lg">{t(link.key)}</span>
+                  </div>
+                  
+                  <svg className={`w-5 h-5 transition-transform duration-300 ${isActive ? 'text-sweida-green opacity-100' : 'text-slate-300 opacity-0 -translate-x-2'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {isRtl ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />}
+                  </svg>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </nav>

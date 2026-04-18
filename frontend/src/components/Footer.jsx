@@ -37,7 +37,8 @@ const Footer = () => {
           {/* العمود الثاني: الروابط السريعة */}
           <div className="flex flex-col gap-3 px-0 md:px-10 border-x border-gray-500/20">
             {[
-              { key: 'footer.about', path: '/projects' },
+              { key: 'footer.about', path: '/about' },
+               { key: 'footer.project', path: '/projects' },
               { key: 'footer.contact', path: '/contact' },
               { key: 'footer.news', path: '#' },
               { key: 'footer.privacy', path: '#' }

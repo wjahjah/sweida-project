@@ -32,10 +32,11 @@
   "header_title": "Électricité Moderne : Le Secret des Connexions",
   "header_subtitle": "Vers un avenir durable pour le gouvernorat de Sweida",
   "footer_msg": "Nous nous engageons à la transparence et à des rapports périodiques pour construire un avenir plus stable et prospère pour Sweida.",
-  "footer": {
-    "about": "À Propos & Projets",
+"footer": {
+    "about": "À Propos",
+    "project": "Projets",
     "contact": "Contactez-nous",
-    "news": "Centre d'Actualités",
+    "news": "Actualités",
     "privacy": "Confidentialité"
   },
   "impact_title": "Indicateur d'Impact",
